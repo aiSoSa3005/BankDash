@@ -18,7 +18,7 @@ const MainLayout = ({ children }: Props) => {
       <nav className=" col-span-1 ">
         <NavBar onSearch={onSearch} />
       </nav>
-      <main className="p-4 ">{children}</main>
+      <main className="">{children}</main>
     </div>
   );
 };
