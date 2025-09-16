@@ -1,7 +1,12 @@
+import type { ReactNode } from "react";
 import NavBar from "./NavBar";
 import SideBar from "./SideBar";
 
-const MainLayout = () => {
+interface Props {
+  children?: ReactNode;
+}
+
+const MainLayout = ({ children }: Props) => {
   const onSearch = (value: string) => {
     console.log(value);
   };
@@ -13,7 +18,7 @@ const MainLayout = () => {
       <nav className=" col-span-1 ">
         <NavBar onSearch={onSearch} />
       </nav>
-      <main className="p-4 "></main>
+      <main className="p-4 ">{children}</main>
     </div>
   );
 };
