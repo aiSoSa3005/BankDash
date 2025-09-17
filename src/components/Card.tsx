@@ -5,7 +5,7 @@ interface Props {
   cardNumber: number;
   cardHolder: string;
   expiry: string;
-  color?: string;
+  color: string | null;
   textColor?: string;
 }
 

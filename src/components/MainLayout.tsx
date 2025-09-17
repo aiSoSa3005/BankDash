@@ -12,7 +12,7 @@ const MainLayout = () => {
 
   return (
     <div className="grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] w-screen h-screen">
-      <aside className="row-span-2 bg-yellow-300">
+      <aside className="row-span-2 ">
         <SideBar />
       </aside>
       <nav className=" col-span-1 ">
