@@ -4,20 +4,41 @@ import { MdHome, MdAccountBalance } from "react-icons/md";
 import { FaMoneyBillTrendUp, FaCrown } from "react-icons/fa6";
 import { GiReceiveMoney } from "react-icons/gi";
 import { RiServiceFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const [active, setActive] = useState("Dashboard");
 
   const navItems = [
-    { label: "Dashboard", icon: <MdHome size={25} /> },
-    { label: "Transactions", icon: <BiCreditCard size={25} /> },
-    { label: "Accounts", icon: <MdAccountBalance size={25} /> },
-    { label: "Investments", icon: <FaMoneyBillTrendUp size={25} /> },
-    { label: "Credit Cards", icon: <BiCreditCard size={25} /> },
-    { label: "Loans", icon: <GiReceiveMoney size={25} /> },
-    { label: "Services", icon: <RiServiceFill size={25} /> },
-    { label: "My Privileges", icon: <FaCrown size={25} /> },
-    { label: "Settings", icon: <BiCog size={25} /> },
+    { label: "Dashboard", path: "/", icon: <MdHome size={25} /> },
+    {
+      label: "Transactions",
+      path: "/transactions",
+      icon: <BiCreditCard size={25} />,
+    },
+    {
+      label: "Accounts",
+      path: "/accounts",
+      icon: <MdAccountBalance size={25} />,
+    },
+    {
+      label: "Investments",
+      path: "/investments",
+      icon: <FaMoneyBillTrendUp size={25} />,
+    },
+    {
+      label: "Credit Cards",
+      path: "/credit-cards",
+      icon: <BiCreditCard size={25} />,
+    },
+    { label: "Loans", path: "/loans", icon: <GiReceiveMoney size={25} /> },
+    { label: "Services", path: "/services", icon: <RiServiceFill size={25} /> },
+    {
+      label: "My Privileges",
+      path: "/privileges",
+      icon: <FaCrown size={25} />,
+    },
+    { label: "Settings", path: "/settings", icon: <BiCog size={25} /> },
   ];
 
   return (
@@ -32,8 +53,9 @@ const SideBar = () => {
       <nav>
         <ul className="flex flex-col gap-2">
           {navItems.map((item) => (
-            <li
+            <Link
               key={item.label}
+              to={item.path}
               onClick={() => setActive(item.label)}
               className={`flex gap-2 items-center p-2 pl-2 cursor-pointer rounded-md
                 ${
@@ -43,7 +65,7 @@ const SideBar = () => {
                 }`}
             >
               {item.icon} {item.label}
-            </li>
+            </Link>
           ))}
         </ul>
       </nav>

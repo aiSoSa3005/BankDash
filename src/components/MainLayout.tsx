@@ -1,24 +1,26 @@
-import type { ReactNode } from "react";
 import NavBar from "./NavBar";
 import SideBar from "./SideBar";
+import { Outlet, useLocation } from "react-router-dom";
 
-interface Props {
-  children?: ReactNode;
-}
+import "../App.css";
 
-const MainLayout = ({ children }: Props) => {
-  const onSearch = (value: string) => {
-    console.log(value);
-  };
+const MainLayout = () => {
+  const location = useLocation();
+  const dynamicHeading =
+    location.pathname.slice(1).charAt(0).toUpperCase() +
+    location.pathname.slice(2).replace("-", " ");
+
   return (
     <div className="grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] w-screen h-screen">
       <aside className="row-span-2 bg-yellow-300">
         <SideBar />
       </aside>
       <nav className=" col-span-1 ">
-        <NavBar onSearch={onSearch} />
+        <NavBar heading={dynamicHeading} onSearch={(q) => console.log(q)} />
       </nav>
-      <main className="">{children}</main>
+      <main className="">
+        <Outlet />
+      </main>
     </div>
   );
 };

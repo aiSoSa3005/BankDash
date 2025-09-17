@@ -4,12 +4,13 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 
 interface Props {
   onSearch: (value: string) => void;
+  heading: string;
 }
 
-const NavBar = ({ onSearch }: Props) => {
+const NavBar = ({ onSearch, heading }: Props) => {
   return (
     <nav className="bg-white col-span-2 p-4 flex justify-between items-center border-b-2 border-[#e6eff5]">
-      <h1 className="font-semibold text-3xl text-[#4d547d]">Overview</h1>
+      <h1 className="font-semibold text-3xl text-[#4d547d]">{heading}</h1>
       <div className="flex gap-6 items-center">
         <InputSearch
           placeholder="Search for something"
