@@ -9,14 +9,17 @@ const MainLayout = () => {
   const dynamicHeading =
     location.pathname.slice(1).charAt(0).toUpperCase() +
     location.pathname.slice(2).replace("-", " ");
-
+  console.log(dynamicHeading);
   return (
-    <div className="grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] w-screen h-screen">
+    <div className="grid grid-cols-[1fr_5fr] grid-rows-[auto_1fr] w-screen h-screen overflow-x-hidden">
       <aside className="row-span-2 ">
         <SideBar />
       </aside>
       <nav className=" col-span-1 ">
-        <NavBar heading={dynamicHeading} onSearch={(q) => console.log(q)} />
+        <NavBar
+          heading={dynamicHeading || "Overview"}
+          onSearch={(q) => console.log(q)}
+        />
       </nav>
       <main className="">
         <Outlet />
