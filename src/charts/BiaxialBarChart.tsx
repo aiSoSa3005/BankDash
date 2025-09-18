@@ -21,7 +21,11 @@ interface Props {
 }
 const BiaxialBarChart = ({ data }: Props) => {
   return (
-    <ResponsiveContainer width="100%" height={260}>
+    <ResponsiveContainer
+      className={"bg-white pt-5 rounded-xl shadow-md"}
+      width="100%"
+      height="100%"
+    >
       <BarChart
         barCategoryGap={"30%"}
         width={100}

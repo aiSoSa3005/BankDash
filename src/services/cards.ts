@@ -1,4 +1,4 @@
-import type { ChartData } from "../components/BiaxialBarChart";
+import type { ChartData } from "../charts/BiaxialBarChart";
 
 export interface CreditCard {
   balance: number;
