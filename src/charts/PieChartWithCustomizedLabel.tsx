@@ -1,14 +1,17 @@
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-];
+export type PieChartData = {
+  name: string;
+  value: number;
+};
+
+interface Props {
+  data: PieChartData[];
+  colors?: string[];
+}
 
 const RADIAN = Math.PI / 180;
-const COLORS = ["#fa00ff", "#343c6a", "#1814f3", "#fc7900"];
+const DEFAULT_COLORS = ["#fa00ff", "#343c6a", "#1814f3", "#fc7900"];
 
 const renderCustomizedLabel = ({
   cx,
@@ -17,25 +20,32 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   percent,
+  name,
 }: any) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.6;
   const x = cx + radius * Math.cos(-(midAngle ?? 0) * RADIAN);
   const y = cy + radius * Math.sin(-(midAngle ?? 0) * RADIAN);
 
   return (
-    <text
-      x={x}
-      y={y}
-      fill="white"
-      textAnchor={x > cx ? "start" : "end"}
-      dominantBaseline="central"
-    >
-      {`${((percent ?? 1) * 100).toFixed(0)}%`}
-    </text>
+    <g>
+      <text
+        x={x}
+        y={y + 14}
+        fill="white"
+        textAnchor={x > cx ? "start" : "end"}
+        dominantBaseline="central"
+        fontSize="14"
+      >
+        {`${((percent ?? 1) * 100).toFixed(0)}%`}
+      </text>
+    </g>
   );
 };
 
-export default function PieChartWithCustomizedLabel() {
+const PieChartWithCustomizedLabel = ({
+  data,
+  colors = DEFAULT_COLORS,
+}: Props) => {
   return (
     <ResponsiveContainer
       className={"bg-white rounded-xl shadow-md"}
@@ -53,15 +63,18 @@ export default function PieChartWithCustomizedLabel() {
           fill="#8884d8"
           dataKey="value"
           paddingAngle={8}
+          stroke="none"
         >
           {data.map((entry, index) => (
             <Cell
               key={`cell-${entry.name}`}
-              fill={COLORS[index % COLORS.length]}
+              fill={colors[index % colors.length]}
             />
           ))}
         </Pie>
       </PieChart>
     </ResponsiveContainer>
   );
-}
+};
+
+export default PieChartWithCustomizedLabel;

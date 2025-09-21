@@ -12,13 +12,13 @@ export function fetchCreditCardsData(): CreditCard[] {
     {
       balance: 5000,
       cardNumber: 1234567890123456,
-      cardHolder: "John Doe",
+      cardHolder: "Sosa Omoruyi",
       expiry: "12/24",
     },
     {
       balance: 3200,
       cardNumber: 9876543210987654,
-      cardHolder: "John Doe",
+      cardHolder: "Sosa Omoruyi",
       expiry: "11/23",
     },
   ];
@@ -91,5 +91,14 @@ export function fetchweeklyActivityData(): ChartData[] {
       withdraw: 4300,
       amt: 2100,
     },
+  ];
+}
+
+export function fetchExpenseStatistics() {
+  return [
+    { name: "Entertainment", value: 400 },
+    { name: "Investement", value: 300 },
+    { name: "Others", value: 300 },
+    { name: "Bill expense", value: 200 },
   ];
 }

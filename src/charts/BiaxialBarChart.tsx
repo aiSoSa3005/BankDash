@@ -22,11 +22,13 @@ interface Props {
 const BiaxialBarChart = ({ data }: Props) => {
   return (
     <ResponsiveContainer
-      className={"bg-white pt-5 rounded-xl shadow-md"}
+      className={"bg-white pt-5 rounded-xl shadow-md outline-none border-0"}
       width="100%"
       height="100%"
+      style={{ border: "none", outline: "none" }}
     >
       <BarChart
+        className="outline-none border-0"
         barCategoryGap={"30%"}
         width={100}
         height={250}
@@ -37,11 +39,24 @@ const BiaxialBarChart = ({ data }: Props) => {
           left: 0,
           bottom: 0,
         }}
+        style={{ border: "none" }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-        <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+        <CartesianGrid strokeDasharray="3 3" stroke="none" />
+        <XAxis dataKey="name" axisLine={false} tickLine={false} />
+        <YAxis
+          yAxisId="left"
+          orientation="left"
+          stroke="#8884d8"
+          axisLine={false}
+          tickLine={false}
+        />
+        <YAxis
+          yAxisId="right"
+          orientation="right"
+          stroke="#82ca9d"
+          axisLine={false}
+          tickLine={false}
+        />
         <Tooltip />
         <Legend />
         <Bar

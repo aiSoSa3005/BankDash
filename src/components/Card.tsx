@@ -29,7 +29,7 @@ const Card = ({
   const textClass = textColor ?? "text-white";
   return (
     <div
-      className={`w-72 rounded-2xl shadow-md  m-4 flex flex-col gap-3 h-auto ${backgroundClass} `}
+      className={`w-[350px] rounded-2xl shadow-md  m-4 flex flex-col gap-3 h-auto ${backgroundClass} `}
     >
       <div className="flex justify-between items-center mb-4 pl-4 pt-4 pr-4">
         <span className={` text-sm flex flex-col gap-1 ${textClass}`}>
