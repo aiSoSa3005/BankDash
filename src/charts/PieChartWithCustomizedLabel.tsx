@@ -50,7 +50,7 @@ const PieChartWithCustomizedLabel = ({
     <ResponsiveContainer
       className={"bg-white rounded-xl shadow-md"}
       width="100%"
-      height={260}
+      height="100%"
     >
       <PieChart width={400} height={400}>
         <Pie

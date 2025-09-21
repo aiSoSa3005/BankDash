@@ -29,15 +29,15 @@ const Card = ({
   const textClass = textColor ?? "text-white";
   return (
     <div
-      className={`w-[350px] rounded-2xl shadow-md  m-4 flex flex-col gap-3 h-auto ${backgroundClass} `}
+      className={`flex-1 rounded-2xl shadow-md  flex flex-col justify-between  ${backgroundClass} `}
     >
-      <div className="flex justify-between items-center mb-4 pl-4 pt-4 pr-4">
+      <div className="flex justify-between items-center mb-4 pl-4 pt-4 pr-4 flex-2">
         <span className={` text-sm flex flex-col gap-1 ${textClass}`}>
           <p className="text-xs">Balance</p> <p>${balance}</p>
         </span>
         <FaMicrochip className={`${textClass} text-2xl`} />
       </div>
-      <div className="flex gap-14 pl-4">
+      <div className="flex justify-between flex-2 pl-4 pr-4">
         <span className={` flex flex-col gap-1 `}>
           <p className="text-xs text-[#c3c2fa]">CARD HOLDER</p>
           <p className={`text-xs ${textClass}`}>{cardHolder}</p>
@@ -48,12 +48,12 @@ const Card = ({
         </span>
       </div>
       <div
-        className={`flex justify-evenly items-center pt-1 pb-4 ${footerBackgroundClass} rounded-b-2xl`}
+        className={`flex flex-1 justify-evenly items-center pt-1 pb-4 ${footerBackgroundClass} rounded-b-2xl`}
       >
         <p className={`text-lg tracking-widest mt-2 ${textClass}`}>
           {hiddenCardNumber(cardNumber)}
         </p>
-        <FaCcMastercard size={30} className={`${textClass}`} />
+        <FaCcMastercard size={30} className={`${textClass} `} />
       </div>
     </div>
   );

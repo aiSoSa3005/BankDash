@@ -10,6 +10,7 @@ import BiaxialBarChart, { type ChartData } from "../charts/BiaxialBarChart";
 import PieChartWithCustomizedLabel, {
   type PieChartData,
 } from "../charts/PieChartWithCustomizedLabel";
+import RecentTransactions from "../components/RecentTransactions";
 
 const DashBoard = () => {
   const [myCards, setMyCards] = useState<CreditCard[]>([]);
@@ -28,7 +29,7 @@ const DashBoard = () => {
     <div className="grid grid-rows-[1fr_1fr_1fr] gap-4  bg-[#f5f7fa] min-h-screen">
       <div className="">
         <h2 className="text-2xl font-semibold text-[#4d547d] p-4">My Cards</h2>
-        <div className="flex gap-4 overflow-x-auto px-4 ">
+        <div className="flex gap-4 overflow-x-auto px-4 py-2 ">
           {myCards.map((card, index) => {
             const color = index % 2 === 0 ? null : "bg-white";
             const textColor = index % 2 === 0 ? "text-white" : "text-gray-800";
@@ -45,31 +46,30 @@ const DashBoard = () => {
               />
             );
           })}
+          <RecentTransactions />
         </div>
       </div>
       <div className="">
-        <div className="grid grid-cols-2 gap-4 px-4">
-          <div className="flex gap-4 col-span-2">
-            <div className="flex-2">
-              <h2 className="text-2xl font-semibold text-[#4d547d] p-4">
-                Weekly Activity
-              </h2>
-              <div className="h-64 ">
-                <BiaxialBarChart data={weeklyCashFlow} />
-              </div>
+        <div className="grid grid-cols-3 gap-4 px-4">
+          <div className="col-span-2">
+            <h2 className="text-2xl font-semibold text-[#4d547d] p-4">
+              Weekly Activity
+            </h2>
+            <div className="h-full min-h-[300px]">
+              <BiaxialBarChart data={weeklyCashFlow} />
             </div>
-            <div className="flex-1">
-              <h2 className="text-2xl font-semibold text-[#4d547d] p-4">
-                Expense Statistics
-              </h2>
-              <div className="h-64">
-                <PieChartWithCustomizedLabel data={expenseData} />
-              </div>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold text-[#4d547d] p-4">
+              Expense Statistics
+            </h2>
+            <div className="h-full min-h-[300px]">
+              <PieChartWithCustomizedLabel data={expenseData} />
             </div>
           </div>
         </div>
       </div>
-      <div className=""></div>
+      <div className="px-4"></div>
     </div>
   );
 };
