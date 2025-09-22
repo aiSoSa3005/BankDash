@@ -29,7 +29,7 @@ const Card = ({
   const textClass = textColor ?? "text-white";
   return (
     <div
-      className={`flex-1 rounded-2xl shadow-md  flex flex-col justify-between  ${backgroundClass} `}
+      className={`flex-1 rounded-3xl shadow-md  flex flex-col justify-between  ${backgroundClass} `}
     >
       <div className="flex justify-between items-center mb-4 pl-4 pt-4 pr-4 flex-2">
         <span className={` text-sm flex flex-col gap-1 ${textClass}`}>
@@ -40,15 +40,15 @@ const Card = ({
       <div className="flex justify-between flex-2 pl-4 pr-4">
         <span className={` flex flex-col gap-1 `}>
           <p className="text-xs text-[#c3c2fa]">CARD HOLDER</p>
-          <p className={`text-xs ${textClass}`}>{cardHolder}</p>
+          <p className={`text-s ${textClass}`}>{cardHolder}</p>
         </span>
         <span className={` flex flex-col gap-1 ${textClass}`}>
           <p className="text-xs text-[#c3c2fa]">VALID THRU</p>
-          <p className={`${textClass} text-xs`}>{expiry}</p>
+          <p className={`${textClass} text-s`}>{expiry}</p>
         </span>
       </div>
       <div
-        className={`flex flex-1 justify-evenly items-center pt-1 pb-4 ${footerBackgroundClass} rounded-b-2xl`}
+        className={`flex flex-1 justify-evenly items-center pt-1 pb-4 ${footerBackgroundClass} rounded-b-3xl`}
       >
         <p className={`text-lg tracking-widest mt-2 ${textClass}`}>
           {hiddenCardNumber(cardNumber)}

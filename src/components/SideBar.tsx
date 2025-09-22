@@ -57,7 +57,7 @@ const SideBar = () => {
               key={item.label}
               to={item.path}
               onClick={() => setActive(item.label)}
-              className={`flex gap-2 items-center p-2 pl-2 cursor-pointer rounded-md
+              className={`flex gap-2 items-center p-2 pl-2 text-2xl cursor-pointer rounded-md
                 ${
                   active === item.label
                     ? "text-[#2d60ff] font-semibold border-l-4 border-[#2d60ff]"

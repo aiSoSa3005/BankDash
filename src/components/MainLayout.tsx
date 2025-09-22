@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 import SideBar from "./SideBar";
 import { Outlet, useLocation } from "react-router-dom";
 
-import "../App.css";
+import "../index.css";
 
 const MainLayout = () => {
   const location = useLocation();
@@ -21,7 +21,7 @@ const MainLayout = () => {
           onSearch={(q) => console.log(q)}
         />
       </nav>
-      <main className="">
+      <main className=" col-span-1 row-span-1 overflow-y-auto p-5 bg-[#f5f7fa]">
         <Outlet />
       </main>
     </div>

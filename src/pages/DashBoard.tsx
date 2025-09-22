@@ -26,10 +26,16 @@ const DashBoard = () => {
     setExpenseData(expenseStats);
   }, []);
   return (
-    <div className="grid grid-rows-[1fr_1fr_1fr] gap-4  bg-[#f5f7fa] min-h-screen">
-      <div className="">
+    <div className=" grid grid-rows-[1fr_1fr_1fr] gap-4  bg-[#f5f7fa] min-h-screen">
+      <div className=" w-[95%] flex flex-col mx-auto">
         <h2 className="text-2xl font-semibold text-[#4d547d] p-4">My Cards</h2>
-        <div className="flex gap-4 overflow-x-auto px-4 py-2 ">
+        <div
+          className="flex gap-4 overflow-x-auto px-4 py-2"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
           {myCards.map((card, index) => {
             const color = index % 2 === 0 ? null : "bg-white";
             const textColor = index % 2 === 0 ? "text-white" : "text-gray-800";
@@ -49,9 +55,9 @@ const DashBoard = () => {
           <RecentTransactions />
         </div>
       </div>
-      <div className="">
-        <div className="grid grid-cols-3 gap-4 px-4">
-          <div className="col-span-2">
+      <div className=" w-[95%] mx-auto">
+        <div className="flex justify-between gap-4 px-4">
+          <div className="flex-2">
             <h2 className="text-2xl font-semibold text-[#4d547d] p-4">
               Weekly Activity
             </h2>
@@ -59,7 +65,7 @@ const DashBoard = () => {
               <BiaxialBarChart data={weeklyCashFlow} />
             </div>
           </div>
-          <div>
+          <div className="flex-1 gap-4">
             <h2 className="text-2xl font-semibold text-[#4d547d] p-4">
               Expense Statistics
             </h2>
@@ -69,7 +75,7 @@ const DashBoard = () => {
           </div>
         </div>
       </div>
-      <div className="px-4"></div>
+      <div className=""></div>
     </div>
   );
 };
